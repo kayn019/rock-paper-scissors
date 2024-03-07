@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+</head>
+<body>
+    <script>
+        const rps = ["rock", "paper", "scissors"];
+        let scoreP = 0;
+        let scoreC = 0;
+
+        function getComputerChoice(){
+            const rand = Math.floor((Math.random()*rps.length));
+            return rps[rand];
+        }
+
+        function round(playerSelection, computerSelection){
+            //print lose or win
+            if(playerSelection == "rock" && computerSelection == "paper" ||
+               playerSelection == "paper" && computerSelection == "scissors" ||
+               playerSelection == "scissors" && computerSelection == "rock"){
+                        scoreC += 1;
+                        return `You Lose! ${computerSelection} beats ${playerSelection}`;
+            }else if(playerSelection == "rock" && computerSelection == "scissors" ||
+                     playerSelection == "paper" && computerSelection == "rock" ||
+                     playerSelection == "scissors" && computerSelection == "paper"){
+                        scoreP += 1;
+                        return `You Win! ${playerSelection} beats ${computerSelection}`;
+            }else{
+                return "It's a tie!";
+            }
+        }
+        function playGame(){         
+            for(let i = 0; i<5; i++){
+                let ps = prompt("Choose rock, paper or scissors 5 times: ").toLowerCase();
+                switch(ps){
+                    case "rock":
+                        break;
+                    case "paper":
+                        break;
+                    case "scissors":
+                        break;
+                    default:
+                        console.log("Enter rock, paper or scissors only");
+                }
+                let cs = getComputerChoice();
+                console.log(round(ps, cs));
+            }   
+        }
+        
+        playGame();
+        if(scoreP > scoreC){
+            console.log("YOU WIN!!!");
+        }else if(scoreP == scoreC){
+            console.log("IT'S A TIE!!!");
+        }else{
+            console.Log("YOU LOSE!!!");
+        }
+        console.log("Player: " + scoreP + " | Computer: " + scoreC);
+
+
+        
+    </script>
+</body>
+</html>
