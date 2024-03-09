@@ -1,0 +1,62 @@
+body {
+    background-color: #211951 ;
+    font-family: monospace;
+    color: #F0F3FF;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.title {
+    margin-top: 60px;
+    font-size: 32px;
+    font-weight: 900;
+}
+
+.buttons {
+    margin: 30px 0px;
+}
+
+.buttons button {
+    padding: 10px;
+    border: 2px solid;
+    border-radius: 8px;
+    font-weight: 900;
+}
+
+.buttons button:hover {
+    filter: brightness(90%);
+}
+
+.buttons button:active {
+    filter: grayscale();
+}
+
+#rock {
+    background-color: #836FFF;
+}
+
+#paper {
+    background-color: #15F5BA;
+}
+
+#scissors {
+    background-color: #F0F3FF;
+}
+
+.results {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.final {
+    font-size: 40px;
+    font-weight: 900;
+}
