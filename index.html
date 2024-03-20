@@ -5,11 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="main.js" defer></script>
 </head>
 <body>
     <div class="container">
         <div class="title">Rock Paper Scissors Game</div>
         <p>Choose rock, paper, or scissors and <u>reach 5 points to win!!</u></p>
+        <div class="Images">
+            <div class="compImg">
+               
+            </div>
+            <div class="playerImg">
+               
+            </div>
+        </div>
+        
         <div class="buttons">
             <button id="rock">rock</button>
             <button id="paper">paper</button>
@@ -20,122 +30,9 @@
             <div class="result"></div>
             <div class="status"></div>
             <div class="final"></div>
+            <button class="btnRematch">Rematch</button>
         </div>
     </div>
-    <script>
-        const rps = ["rock", "paper", "scissors"];
-        let scoreP = 0;
-        let scoreC = 0;
-        let attempts = 0;
 
-
-        function getComputerChoice(){
-            const rand = Math.floor((Math.random()*rps.length));
-            return rps[rand];
-        }
-
-        function round(playerSelection, computerSelection){
-            //print lose or win
-            if(playerSelection == "rock" && computerSelection == "paper" ||
-               playerSelection == "paper" && computerSelection == "scissors" ||
-               playerSelection == "scissors" && computerSelection == "rock"){
-                        scoreC += 1;
-                        return `You Lose! ${computerSelection} beats ${playerSelection}`;
-            }else if(playerSelection == "rock" && computerSelection == "scissors" ||
-                     playerSelection == "paper" && computerSelection == "rock" ||
-                     playerSelection == "scissors" && computerSelection == "paper"){
-                        scoreP += 1;
-                        return `You Win! ${playerSelection} beats ${computerSelection}`;
-            }else{
-                return "It's a tie!";
-            }
-
-        
-        }
-
-        // function playGame(){         
-        //     for(let i = 0; i<5; i++){
-        //         let ps = prompt("Choose rock, paper or scissors 5 times: ").toLowerCase();
-        //         switch(ps){
-        //             case "rock":
-        //                 break;
-        //             case "paper":
-        //                 break;
-        //             case "scissors":
-        //                 break;
-        //             default:
-        //                 console.log("Enter rock, paper or scissors only");
-        //         }
-        //         let cs = getComputerChoice();
-        //         console.log(round(ps, cs));
-        //     }   
-        // }
-
-        function btnClick(btnClicked){
-            btnClicked.addEventListener("click", function clicky(){
-                if(scoreC >= 5 || scoreP >= 5){
-                    //Game over
-                }else{
-                    attempts++;
-                    let cs = getComputerChoice();
-                    round(btnClicked.textContent, cs);
-                    displayCurResult();
-                    }
-                }
-            )
-
-
-        //     if(scoreP > scoreC){
-        //     console.log("YOU WIN!!!");
-        // }else if(scoreP == scoreC){
-        //     console.log("IT'S A TIE!!!");
-        // }else{
-        //     console.log("YOU LOSE!!!");
-        // }
-        //     console.log("Player: " + scoreP + " | Computer: " + scoreC);
-            
-        }
-
-        function displayCurResult(){
-            const res = document.querySelector('.result');
-            const stat = document.querySelector('.status');
-            const att = document.querySelector('.attempts');
-
-            att.textContent = "Attempts: " + attempts;
-
-            if(scoreP > scoreC){
-            res.textContent = "YOU WIN!!!";
-        }else if(scoreP == scoreC){
-            res.textContent = "IT'S A TIE!!!";
-        }else{
-            res.textContent = "YOU LOSE!!!";
-        }
-        
-            stat.textContent = "Player: " + scoreP + " | Computer: " + scoreC ;
-
-            if(scoreC >= 5 || scoreP >= 5){
-                    
-                    const fin = document.querySelector('.final');
-                    
-                    if(scoreP > scoreC){
-                            fin.textContent = "YOU WIN THIS MATCH!!!";
-                    }else{
-                            fin.textContent = "YOU LOSE THIS MATCH!!!";
-                    }
-                    
-                }
-        
-        }
-        
-        //playGame();
-        const btnRock = document.querySelector('#rock');
-        const btn = document.querySelectorAll('button');
-
-        btn.forEach((item) =>{
-                btnClick(item);             
-                
-        });   
-
-    </script>
 </body>
 </html>
