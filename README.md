@@ -1,3 +1,3 @@
 # rock-paper-scissors
 
-A rock paper scissors game built with Javascript. (console)
+A rock paper scissors game built with Javascript.
